@@ -213,3 +213,119 @@ t.interrupt();
 System.out.println("Is the thread interrupted?" t.isInterrupted());
 }
 }
+
+fileoperation
+
+public class filesoperation{
+public static void main(String[] args) {
+
+// create a new file 
+File file = new File( pathname: "example.txt");
+
+try {
+    if (file.createNewFile()) {
+    System.out.println("File created successfully.")
+} 
+else {
+System.out.println("File already exists.");
+}
+} catch (IOException e) { 
+e.printStackTrace();
+
+}
+// copy content from one file to another
+File sourceFile = new File( pathname: "example.txt"); 
+File destFile = new File( pathname: "example-copy.txt"); 
+try {
+FileInputStream inputStream = new FileInputStream(sourceFile);
+FileOutputStream outputStream = new FileOutputStream(destFile); 
+byte[] buffer = new byte[1024];
+int length;
+while ((length = inputStream.read(buffer)) > 0) { 
+outputStream.write(buffer, off 8, length); }
+inputStream.close(); outputStream.close();
+System.out.println("Content copied successfully.");
+}
+// append data to the existing file
+try {
+FileWriter writer = new FileWriter (fileName: "example.txt",
+writer.write(str. "\nThis is a new line of text appended to the file.");
+writer.close();
+System.out.println("Data appended successfully."); } 
+catch (IOException e) {
+    e.printStackTrace();
+}
+
+// print the file content
+try {
+BufferedReader reader = new BufferedReader(new FileReader(fileName: "example.txt"));
+String line = reader.readLine();
+while (line != null) {
+    System.out.println(line);
+    line=reader.readLine();
+}
+reader.close();  
+} catch (IOException e) {
+e.printStackTrace();
+}
+if (file.delete()){
+    System.out.println("File deleted successfully.");
+    }else {
+        System.out.println("Failed to delete the file.");
+        }
+    }
+}
+
+studentresume
+
+abstract class Resume {
+public void personalinfo() {
+    System.out.println("Name: John Doe");
+    System.out.println("Email: johndoe@email.com");
+    System.out.println("Phone: 123-456-7890");
+}
+public abstract void biodata();
+class Teacher extends Resume {
+    private String qualification;
+    private int experience:
+    private String achievements;
+    public Teacher (String qualification, int experience, String achievements)
+
+this.qualification qualification; 
+this.experience = experience;
+this.achievements achievements;
+}
+public void biodata() { 
+System.out.println("Qualification:"+qualification);
+System.out.println("Experience:" + experience+ "years");
+System.out.println("Achievements:" +achievements+");
+}
+class Student extends Resume{
+private String result
+private String discipline;
+
+public Student (String result, String discipline) {
+this.result result;
+this.discipline discipline;
+}
+
+public void biodata() { 
+    System.out.println("Result:+ result);
+    System.out.println("Discipline: discipline);
+    }
+}
+public class studentb {
+public static void main(String[] args) {
+Resume teacher Resume = new Teacher( qualification: "PhD in Computer Science", experience 10, achievements");
+System.out.println("Teacher Resume:"); 
+teacher Resume.personalinfo();
+teacher Resume.biodata();
+
+Resume studentResume = new Student( result "3.8 GPA", discipline "Computer Science"); 
+System.out.println("\nStudent Resume:"); 
+studentResume.personalinfo(); 
+studentResume.biodata();
+    }
+}
+
+        
