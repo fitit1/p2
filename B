@@ -67,6 +67,8 @@ public class queue {
 
     }
 }
+
+
 stack
 import java.util.Scanner;
 public class stack {
@@ -132,116 +134,8 @@ public class stack {
     }
 }
 
-matrix add
-import java.util.Scanner;
-public class matrixadd {
-    public static void main(String[] args) {
-        int r1, r2, c1, c2;
-        Scanner in = new Scanner(System.in);
 
-        System.out.println("enter the rows of first matrix\n");
-        r1 = in.nextInt();
 
-        System.out.println("enter the columns of first matrix\n");
-        c1 = in.nextInt();
-
-        System.out.println("enter the rows of second matrix\n");
-        r2 = in.nextInt();
-
-        System.out.println("enter the columns of second matrix\n");
-        c2 = in.nextInt();
-        int a[][] = new int[r1][c1];
-        int b[][] = new int[r2][c2];
-        System.out.println("enter the elements of first matrix\n");
-        for (int i = 0; i < r1; i++) {
-            for (int j = 0; j < c1; j++) {
-                a[i][j] = in.nextInt();
-            }
-        }
-        System.out.println("enter the elements of second matrix\n");
-        for (int i = 0; i < r2; i++) {
-            for (int j = 0; j < c2; j++) {
-                b[i][j] = in.nextInt();
-            }
-        }
-        if (r1 != r2 && c1 != c2) {
-            System.out.println("matrix addition is not possible\n");
-        }
-
-        int c[][] = new int[r1][c1];
-        for (int i = 0; i < r1; i++)
-        {
-            for (int j = 0; j < c1; j++)
-            {
-                c[i][j] = a[i][j] + b[i][j];
-            }
-        }
-
-        System.out.println("resultant matrix is:");
-                for(int i = 0; i<r1;i++)
-                {
-                    for(int j = 0;j<c1;j++)
-                    {
-                        System.out.println("\t"+c[i][j]);
-                    }
-                    System.out.println( );
-                }
-    }
-}
-
-matrixmultiplication
-import java.util.Scanner;
-public class matrixmultiplication {
-    public static void main(String[] args) {
-        int r1, r2, c1, c2;
-        Scanner in = new Scanner(System.in);
-        System.out.println("enter the no. of rows of first matrix\n");
-        r1 = in.nextInt();
-
-        System.out.println("enter the no. of columns of first matrix\n");
-        c1 = in.nextInt();
-
-        System.out.println("enter the no. of rows of second matrix\n");
-        r2 = in.nextInt();
-
-        System.out.println("enter the no. of columns of second matrix\n");
-        c2 = in.nextInt();
-
-        int a[][] = new int[r1][c1];
-        int b[][] = new int[r2][c2];
-
-        System.out.println("enter the elements of first matrix");
-        for (int i = 0; i < r1; i++) {
-            for (int j = 0; j < c1; j++) {
-                a[i][j] = in.nextInt();
-            }
-        }
-        System.out.println("enter the elements of second matrix");
-        for (int i = 0; i < r2; i++) {
-            for (int j = 0; j < c2; j++) {
-                b[i][j] = in.nextInt();
-            }
-        }
-        if (c1 != r2) {
-            System.out.println("matrix multiplication is not possible");
-            return;
-        }
-        int c[][] = new int[r1][c2];
-        for (int i = 0; i < r1; i++) {
-            for (int j = 0; j < c2; j++) {
-                for (int k = 0; k < c1; k++) {
-                    c[i][k] = c[i][k] + (a[i][j] * b[j][k]);
-                }
-            }
-        }
-        System.out.println("resultant matrix is:");
-        for (int i = 0; i < r1; i++) {
-            for (int j = 0; j < c2; j++) {
-        System.out.println(c[i][j]);
-            }
-        }
-    }
-}
 
 multilvl
 import java.util.Scanner;
@@ -275,4 +169,47 @@ public class multilevel {
         System.out.println("iphone 14 features are:");
         obj.features();
     }
+}
+
+thread
+
+public class thread implements Runnable
+public void run() {
+    System.out.println("Thread is running");
+}
+public static void main(String[] args) throws InterruptedException { 
+Thread t = new Thread (new thread());
+//Start the thread 
+t.start();
+
+// Wait for the thread to finish
+t.join();
+
+// Set the thread name
+t.setName("My Thread");
+
+// Get the thread name
+System.out.println("Thread name is: " + t.getName());
+
+// Set the thread priority 
+t.setPriority (Thread.MAX_PRIORITY);
+
+// Get the thread priority
+System.out.println("Thread priority is:" + t.getPriority());
+
+// Set the thread to be a daemon thread
+t.setDaemon(true);
+
+// Check if the thread is a daemon thread
+System.out.println("Is the thread a daemon thread?"+ t.isDaemon());
+
+// Check if the thread is alive
+System.out.println("Is the thread alive?" + t.isAlive());
+
+// Interrupt the thread
+t.interrupt();
+
+// Check if the thread has been interrupted
+System.out.println("Is the thread interrupted?" t.isInterrupted());
+}
 }
