@@ -1,0 +1,278 @@
+Part b 
+1 queue
+import java.util.Scanner;
+public class queue {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n ,f=1;
+        int r = -1;
+        int flag = 1;
+
+        System.out.println("enteet hte no. of elements\n");
+        n = in.nextInt();
+        int max = n;
+        int q[] = new int[n];
+
+        while(flag==1)
+        {
+            System.out.println("Menu\n");
+            System.out.println(" 1.insert\n 2.delete\n 3.display\n 4.exit\n");
+
+            System.out.println("enter the choice");
+            int ch = in.nextInt();
+
+            switch(ch)
+            {
+                case 1: if(r == max-1)
+                {
+                    System.out.println("queue is full\n");
+
+                }
+                else {
+                    System.out.println("enter the elements\n");
+                    int ele = in.nextInt();
+                    q[++r] = ele;
+                }
+                    break;
+                case 2:  if(f>r)
+                {
+                    System.out.println("queue is empty\n");
+                }
+                else
+                {
+                    System.out.println("deleted element is "+q[f++]);
+                }
+                    break;
+
+                case 3: if(f>r)
+                {
+                    System.out.println("queue is empty\n");
+                }
+                else
+                {
+                    System.out.println("queue elements are");
+
+                    for(int i = f;i<=r;i++)
+                    {
+                        System.out.println(q[i]);
+                    }
+                }
+                    break;
+
+                default : flag = 0;
+                    break;
+            }
+        }
+
+    }
+}
+stack
+import java.util.Scanner;
+public class stack {
+    public static void main(String[] args)
+    {
+        int n,f=1;
+        int top = -1;
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("enter thr no. of elememts\n");
+        n = in.nextInt();
+        int max = n;
+        int a[] = new int[n];
+
+        while(f ==1)
+        {
+            System.out.println("\n menu");
+            System.out.println("1.push \n 2.pop\n 3.display\n 4.exit\n");
+
+            System.out.println("enter your choice");
+            int c = in.nextInt();
+
+            switch(c)
+            {
+                case 1 :  if(top == max-1)
+                {
+                    System.out.println("\n stack is full");
+                }
+                else {
+                    System.out.println("enter the elemenrts tpo be pushed\n");
+                    int e = in.nextInt();
+                    a[++top] = e;
+                }
+                break;
+
+                case 2: if(top == -1)
+                {
+                    System.out.println("stack is empty(underflow)\n");
+                }
+                else {
+                    System.out.println("deleted element is "+a[top--]);
+                }
+                break;
+
+                case 3: if(top == -1)
+                {
+                    System.out.println("stack is empty(underflow)\n");
+                }
+                else
+                {
+                    System.out.println("stack is:\n");
+                    for(int i =0; i<=top;i++)
+                    {
+                        System.out.println("\n"+a[i]+ "\n");
+                    }
+                }
+                break;
+
+                default : f = 0;
+                break;
+            }
+        }
+    }
+}
+
+matrix add
+import java.util.Scanner;
+public class matrixadd {
+    public static void main(String[] args) {
+        int r1, r2, c1, c2;
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("enter the rows of first matrix\n");
+        r1 = in.nextInt();
+
+        System.out.println("enter the columns of first matrix\n");
+        c1 = in.nextInt();
+
+        System.out.println("enter the rows of second matrix\n");
+        r2 = in.nextInt();
+
+        System.out.println("enter the columns of second matrix\n");
+        c2 = in.nextInt();
+        int a[][] = new int[r1][c1];
+        int b[][] = new int[r2][c2];
+        System.out.println("enter the elements of first matrix\n");
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                a[i][j] = in.nextInt();
+            }
+        }
+        System.out.println("enter the elements of second matrix\n");
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                b[i][j] = in.nextInt();
+            }
+        }
+        if (r1 != r2 && c1 != c2) {
+            System.out.println("matrix addition is not possible\n");
+        }
+
+        int c[][] = new int[r1][c1];
+        for (int i = 0; i < r1; i++)
+        {
+            for (int j = 0; j < c1; j++)
+            {
+                c[i][j] = a[i][j] + b[i][j];
+            }
+        }
+
+        System.out.println("resultant matrix is:");
+                for(int i = 0; i<r1;i++)
+                {
+                    for(int j = 0;j<c1;j++)
+                    {
+                        System.out.println("\t"+c[i][j]);
+                    }
+                    System.out.println( );
+                }
+    }
+}
+
+matrixmultiplication
+import java.util.Scanner;
+public class matrixmultiplication {
+    public static void main(String[] args) {
+        int r1, r2, c1, c2;
+        Scanner in = new Scanner(System.in);
+        System.out.println("enter the no. of rows of first matrix\n");
+        r1 = in.nextInt();
+
+        System.out.println("enter the no. of columns of first matrix\n");
+        c1 = in.nextInt();
+
+        System.out.println("enter the no. of rows of second matrix\n");
+        r2 = in.nextInt();
+
+        System.out.println("enter the no. of columns of second matrix\n");
+        c2 = in.nextInt();
+
+        int a[][] = new int[r1][c1];
+        int b[][] = new int[r2][c2];
+
+        System.out.println("enter the elements of first matrix");
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                a[i][j] = in.nextInt();
+            }
+        }
+        System.out.println("enter the elements of second matrix");
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                b[i][j] = in.nextInt();
+            }
+        }
+        if (c1 != r2) {
+            System.out.println("matrix multiplication is not possible");
+            return;
+        }
+        int c[][] = new int[r1][c2];
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    c[i][k] = c[i][k] + (a[i][j] * b[j][k]);
+                }
+            }
+        }
+        System.out.println("resultant matrix is:");
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+        System.out.println(c[i][j]);
+            }
+        }
+    }
+}
+
+multilvl
+import java.util.Scanner;
+class iphone12
+{
+    void features()
+    {
+        System.out.println("fingerprint and face lock system\n");
+    }
+}
+    class iphone13 extends iphone12
+    {
+        void features()
+        {
+            super.features();
+            System.out.println("camera and display features\n");
+        }
+    }
+    class iphone14 extends iphone13
+    {
+        void features()
+        {
+            super.features();
+            System.out.println("phone tracking system\n");
+        }
+    }
+public class multilevel {
+    public static void main(String[] args)
+    {
+        iphone14 obj = new iphone14();
+        System.out.println("iphone 14 features are:");
+        obj.features();
+    }
+}
